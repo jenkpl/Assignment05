@@ -19,21 +19,27 @@
     </style>
     <script>
         const $ = (id) => {
-    return document.getElementById(id);
+    return document.getElementById (id);
 };
 
 window.addEventListener('load', init);
 
 function init() {
    
-    let idU     = $('Fid');
-    let nameU   = $('name');
-    let emailU  = $('email');
-    let extU    = $('ext');
-    let deptU   = $('dept');
-
+    
+        // console.log(`ID:`, idU);
+        // console.log(`Name:`, nameU);
+        // console.log(`Extension:`, extU);
+        // console.log(`Email:`, emailU);
+        // console.log(`Department:`, deptU);
     const form = document.getElementById('empForm');
-    form.addEventListener('submit', () => {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let idU     = $('Fid').value;
+    let nameU   = $('name').value;
+    let emailU  = $('email').value;
+    let extU    = $('ext').value;
+    let deptU   = $('dept').value;
         console.log(`ID:`, idU);
         console.log(`Name:`, nameU);
         console.log(`Extension:`, extU);
@@ -47,29 +53,29 @@ function init() {
     <h1>Employee Management System</h1>
     <form method="get" id="empForm">
     <fieldset>
-        <label for="Fid"> 8-Digit Employee ID
-            <input type="text" maxlength="8" id="Fid" value="12345678" required>
-        </label>
-        <label for="name">Full Name
+        <label for="Fid"> 8-Digit Employee ID </label>
+            <input type="text" maxlength="8" id="Fid" placeholder="12345678" required>
+       
+        <label for="name">Full Name</label>
             <input type="text" id="name" required>
-        </label>
-        <label for="ext">4-Digit Extension
+        
+        <label for="ext">4-Digit Extension</label>
             <input type="text" maxlength="4" id="ext" required>
-        </label>
-        <label for="email">Email
-            <input type="email" value="name@email.com"id="email" required>
-        </label>
-        <label for="dept">Department
+       
+        <label for="email">Email</label>
+            <input type="email" id="email" placeholder="name@email.com" required>
+      
+        <label for="dept">Department</label>
                 <select id="dept" required>
-                <option value = "noneSelected" selected disabled hidden>Choose One</option>
-                <option value = "1">Administrative</option>
-                <option value = "2">Engineering</option>
-                <option value = "3">Executive</option>
-                <option value = "4">Marketing</option>
-                <option value = "5">Quality Assurance</option>
-                <option value = "6">Sales</option>
+                <option selected disabled hidden>Choose One</option>
+                <option>Administrative</option>
+                <option>Engineering</option>
+                <option>Executive</option>
+                <option>Marketing</option>
+                <option>Quality Assurance</option>
+                <option>Sales</option>
                 </select>
-        </label><br>
+        <br>
         <button type="submit" id="submit">Add Employee</button>
     </fieldset>
     </form>
